@@ -11,3 +11,15 @@ class Image(models.Models):
 
     def __str__(self):
         return self.image_name
+        
+ class Category(models.Model):
+     category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.category
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        Category.objects.filter().delete()
