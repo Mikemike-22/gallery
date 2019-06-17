@@ -14,11 +14,11 @@ def search_images(request):
         search_images = Image.search_by_category(search_term)
         message = f"{search_term}"
 
-        return render(request,'collage/search.html',{"message":message,"images_searched":search_images})
+        return render(request,'photo/search.html',{"message":message,"images_searched":search_images})
 
     else:
         message = "You haven't searched yet"
-        return render(request,"photos/search.html",{"message":message})
+        return render(request,"photo/search.html",{"message":message})
 
 def filter_location(request,image_id):
     try:
@@ -26,4 +26,4 @@ def filter_location(request,image_id):
         located_images = Image.objects.filter(image_location=image_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,'photos/image.html',{"located_images":located_images,"locations":location})
+    return render(request,'photo/image.html',{"located_images":located_images,"locations":location})
