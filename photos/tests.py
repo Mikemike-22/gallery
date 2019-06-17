@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Image
+from .models import Image,Location,Category
 
 # Create your tests here.
 class ImageTestCase(TestCase):
@@ -38,3 +38,19 @@ class ImageTestCase(TestCase):
         images = Image.get_image_by_id(self.new_image.id)
         self.new_image.delete_image()
         self.assertTrue(len(images)==0)
+
+class LocationTestClass(TestCase):
+    def setUp(self):
+        self.mombasa = Location(location='Mombasa')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.mombasa,Location))
+    def test_save_method(self):
+        self.mombasa.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)
+
+    def test_delete_location(self):
+        self.mombasa.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) == 0)
