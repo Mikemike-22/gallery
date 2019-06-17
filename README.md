@@ -27,13 +27,14 @@ Use the following commands to use this project.
 ## Technologies used
 
 The different technologies that were used to develop this program include:
-
+1. Pyhton(Django)
 2. Bootstrap
 3. HTML
 4. CSS
 5. Postgresql
 
 ## Link to live site
+
 Here is a link to the live site
 https://gallery-22.herokuapp.com/
 ### Contact Me

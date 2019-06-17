@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import django_heroku
-import d_database_url
+import dj_database_url
 from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
@@ -160,4 +160,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku
-django_heroku.sdettings(locals())
+django_heroku.settings(locals())
