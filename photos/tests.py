@@ -4,13 +4,13 @@ from .models import Image,Location,Category
 # Create your tests here.
 class ImageTestCase(TestCase):
     def setUp(self):
-        self.nairobi = Location(location='Nairobi')
+        self.nairobi = Location(location='Mombasa')
         self.nairobi.save_location()
 
-        self.landscape = Category(category='Nature')
+        self.landscape = Category(category='Landscape')
         self.landscape.save_category()
 
-        self.new_image = Image(image_name='Test Name',image_description='Test Description',image_location=self.nairobi,image_category=self.landscape)
+        self.new_image = Image(image_name='Test Name',image_description='Test Description',image_location=self.mombasa,image_category=self.landscape)
         self.new_image.save_image()
 
         def test_instance(self):
@@ -22,11 +22,11 @@ class ImageTestCase(TestCase):
         self.assertTrue(len(images)>0)
 
     def test_filter_by_location(self):
-        filtered_images = Image.filter_by_location('Nairobi')
+        filtered_images = Image.filter_by_location('Mombasa')
         self.assertTrue(len(filtered_images)>0)
 
     def test_search_image(self):
-        image = Image.search_by_category('Nature')
+        image = Image.search_by_category('Landscape')
         self.assertTrue(len(image)>0)
 
     def test_get_image_by_id(self):

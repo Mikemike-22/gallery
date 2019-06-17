@@ -8,10 +8,10 @@
 </head>
 <body>
    <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark info-color">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="{% url 'index' %}">Pic-Galore</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Gallery</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -31,7 +31,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Locations</a>
+                aria-haspopup="true" aria-expanded="false">Places</a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
                     {% for location in locations %}
                     <a class="dropdown-item" href="/location/{{location.id}}">{{location.location}}</a>
@@ -42,7 +42,7 @@
 
 
           <form class="form-inline my-2 my-lg-0 ml-auto" role="search" action="{% url 'search_results'%}">
-                <input class="form-control" type="text" placeholder="Search Images" aria-label="Search" name="image">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="image">
                 <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
             </form>
         </div>
