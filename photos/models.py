@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Image(models.Models):
+class Image(models.Model):
     image_path = models.ImageField('images/',default="")
     image_name= models.CharField(max_length=50)
     image_description = models.TextField()
@@ -11,9 +11,27 @@ class Image(models.Models):
 
     def __str__(self):
         return self.image_name
+    class Meta:
+        ordering = ['-id']
 
- class Category(models.Model):
-     category = models.CharField(max_length=50)
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
+    @classmethod
+    def search_by_category(cls,search_term):
+        searched_images = cls.objects.filter(image_category__category__icontains=search_term)
+        return searched_images
+        
+class Category(models.Model):
+
+    category = models.CharField(max_length=50)
 
     def __str__(self):
         return self.category
