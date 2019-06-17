@@ -1,0 +1,41 @@
+{% extends 'photo/base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% if images_searched %}
+        <h3>Found {{images_searched|length}} of searched term {{message}}</h3>
+        {% else %}
+        <h3>Found no images for the search term {{message}}</h3>
+        {% endif %}
+    </div>
+    <div class="row">
+        {% if images_searched %}
+        {% for image in images_searched %}
+        <div class="col-md-4">
+            <!-- <img src="{{image.image_path.url}}" alt=""> -->
+            <!-- Card deck -->
+<div class="card-deck">
+
+        <!-- Card -->
+        <div class="card mb-4">
+
+          <!--Card image-->
+          <div class="view overlay">
+            <img class="card-img-top" src="{{image.image_path.url}}" alt="{{image.image_name}}">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+        </div>
+        <!-- Card -->
+
+
+      </div>
+      <!-- Card deck -->
+        </div>
+        {% endfor%}
+        {% endif%}
+    </div>
+</div>
+{% endblock %}
