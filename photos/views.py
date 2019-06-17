@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from .models import Image,Location,Category
 
 
 # Create your views here.
 def index(request):
     image_catalogue = Image.all_images()
-    loaction = Location.get_location()
-    return render(request,'photos/index.html',{"all_images":image_catalogue,"locations":location})
+    location = Location.get_location()
+    return render(request,'photo/index.html',{"all_images":image_catalogue,"locations":location})
 
 def search_images(request):
     if 'image' in request.GET and request.GET["image"]:
