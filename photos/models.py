@@ -1,6 +1,36 @@
 from django.db import models
 
 # Create your models here.
+class Location(models.Model):
+    location = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.location
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        Location.objects.filter().delete()
+
+    @classmethod
+    def get_location(cls):
+        location_found = cls.objects.all()
+        return location_found
+
+
+class Category(models.Model):
+
+    category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.category
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        Category.objects.filter().delete()
 
 class Image(models.Model):
     image_path = models.ImageField('images/',default="")
@@ -28,33 +58,3 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         searched_images = cls.objects.filter(image_category__category__icontains=search_term)
         return searched_images
-        
-class Category(models.Model):
-
-    category = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.category
-
-    def save_category(self):
-        self.save()
-
-    def delete_category(self):
-        Category.objects.filter().delete()
-
-class Location(models.Model):
-    location = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.location
-
-    def save_location(self):
-        self.save()
-
-    def delete_location(self):
-        Location.objects.filter().delete()
-
-    @classmethod
-    def get_location(cls):
-        location_found = cls.objects.all()
-        return location_found
