@@ -35,9 +35,9 @@ The different technologies that were used to develop this program include:
 
 ## Link to live site
 Here is a link to the live site
-
+https://gallery-22.herokuapp.com/
 ### Contact Me
-contact me via email mikor22@gmail.com or slack me via lilian waweru
+contact me via email mikor22@gmail.com
 
 ## License & Copyright information
 Copyright (c) 2019 Michael Kipkorir
