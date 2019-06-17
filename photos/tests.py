@@ -54,3 +54,20 @@ class LocationTestClass(TestCase):
         self.mombasa.delete_location()
         location = Location.objects.all()
         self.assertTrue(len(location) == 0)
+
+class CategoryTestClass(TestCase):
+    def setUp(self):
+        self.pets = Category(category='Animals')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.pets,Category))
+
+    def test_save_method(self):
+        self.pets.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)
+
+    def test_delete_category(self):
+        self.pets.delete_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) == 0)
