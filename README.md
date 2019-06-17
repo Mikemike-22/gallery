@@ -34,7 +34,7 @@ The different technologies that were used to develop this program include:
 5. Postgresql
 
 ## Link to live site
-Here is a link to the live site https://galler32.herokuapp.com
+Here is a link to the live site
 
 ### Contact Me
 contact me via email mikor22@gmail.com or slack me via lilian waweru
